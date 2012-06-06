@@ -49,17 +49,17 @@ public class Projekt implements Serializable {
     }
 
     /**
-     * @return the elternProjekt
+     * @return the projektAufgaben
      */
-    public Collection getElternProjekt() {
+    public Collection getProjektAufgaben() {
         return projektAugaben;
     }
 
     /**
-     * @param elternProjekt the elternProjekt to set
+     * @param projektAugaben the projektAugaben to set
      */
-    public void setElternProjekt(Collection elternProjekt) {
-        this.projektAugaben = elternProjekt;
+    public void setProjektAufgaben(Collection projektAugaben) {
+        this.projektAugaben = projektAugaben;
     }
 
     /**

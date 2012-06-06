@@ -93,44 +93,44 @@ public class Benutzer implements Serializable {
     }
 
     /**
-     * @return the autor
+     * @return the meineKommentare
      */
-    public Collection getAutor() {
+    public Collection getMeineKommentare() {
         return meineKommentare;
     }
 
     /**
-     * @param autor the autor to set
+     * @param meineKommentare the meineKommentare to set
      */
-    public void setAutor(Collection autor) {
-        this.meineKommentare = autor;
+    public void setMeineKommentare(Collection meineKommentare) {
+        this.meineKommentare = meineKommentare;
     }
 
     /**
-     * @return the ersteller
+     * @return meine Aufgaben
      */
-    public Collection getErsteller() {
+    public Collection getMeineAufgaben() {
         return meineAufgaben;
     }
 
     /**
-     * @param ersteller the ersteller to set
+     * @param meineAufgaben the meineAufgaben to set
      */
-    public void setErsteller(Collection ersteller) {
-        this.meineAufgaben = ersteller;
+    public void setMeineAufgaben(Collection meineAufgaben) {
+        this.meineAufgaben = meineAufgaben;
     }
 
     /**
-     * @return the besitzer
+     * @return the meineProjekte
      */
-    public Collection getBesitzer() {
+    public Collection getMeineProjekte() {
         return meineProjekte;
     }
 
     /**
-     * @param besitzer the besitzer to set
+     * @param meineProjekte the meineProjekte to set
      */
-    public void setBesitzer(Collection besitzer) {
-        this.meineProjekte = besitzer;
+    public void setMeineProjekte(Collection meineProjekte) {
+        this.meineProjekte = meineProjekte;
     }
 }

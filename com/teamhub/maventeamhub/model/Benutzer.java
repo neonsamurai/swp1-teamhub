@@ -133,4 +133,31 @@ public class Benutzer implements Serializable {
     public void setMeineProjekte(Collection meineProjekte) {
         this.meineProjekte = meineProjekte;
     }
+    
+     @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Benutzer) {
+            Benutzer ob = (Benutzer) obj;
+            if (ob.getId() == this.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 71 * hash + (this.benutzerName != null ? this.benutzerName.hashCode() : 0);
+        hash = 71 * hash + (this.passwort != null ? this.passwort.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Benutzer{" + "benutzerName=" + benutzerName + '}';
+    }
+    
+    
 }

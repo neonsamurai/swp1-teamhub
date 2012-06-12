@@ -103,4 +103,32 @@ public class Projekt implements Serializable {
     public void setStatus(ProjektStatus status) {
         this.status = status;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Projekt) {
+            Projekt ob = (Projekt) obj;
+            if (ob.getId() == this.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 59 * hash + (this.titel != null ? this.titel.hashCode() : 0);
+        hash = 59 * hash + (this.name != null ? this.name.hashCode() : 0);
+        hash = 59 * hash + (this.beschreibung != null ? this.beschreibung.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Projekt{" + "titel=" + titel + ", beschreibung=" + beschreibung + '}';
+    }
+    
+    
 }

@@ -74,4 +74,32 @@ public class Kommentar implements Serializable {
     public void setAenderungsDatum(Timestamp aenderungsDatum) {
         this.aenderungsDatum = aenderungsDatum;
     }
+    
+     @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Kommentar) {
+            Kommentar ob = (Kommentar) obj;
+            if (ob.getId() == this.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 67 * hash + (this.text != null ? this.text.hashCode() : 0);
+        hash = 67 * hash + (this.erstellDatum != null ? this.erstellDatum.hashCode() : 0);
+        hash = 67 * hash + (this.autor != null ? this.autor.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Kommentar{" + ", autor=" + autor+ "text=" + text + '}';
+    }
+     
+     
 }

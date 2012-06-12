@@ -168,4 +168,32 @@ public class Aufgabe implements Serializable {
     public void setElternProjekt(Projekt elternProjekt) {
         this.elternProjekt = elternProjekt;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Aufgabe) {
+            Aufgabe ob = (Aufgabe) obj;
+            if (ob.getId() == this.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 23 * hash + (this.beschreibung != null ? this.beschreibung.hashCode() : 0);
+        hash = 23 * hash + (this.titel != null ? this.titel.hashCode() : 0);
+        hash = 23 * hash + (this.erstellDatum != null ? this.erstellDatum.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Aufgabe{"+", titel=" + titel + "beschreibung=" + beschreibung + '}';
+    }
+    
+    
 }

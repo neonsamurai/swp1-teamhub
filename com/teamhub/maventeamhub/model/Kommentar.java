@@ -1,7 +1,8 @@
 package com.teamhub.maventeamhub.model;
 
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.util.Collection;
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity
@@ -17,13 +18,18 @@ public class Kommentar implements Serializable {
     /**
      * @attribute
      */
-    private Timestamp erstellDatum;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date erstellDatum;
     /**
      * @attribute
      */
-    private Timestamp aenderungsDatum;
-    @OneToOne
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date aenderungsDatum;
+    @ManyToOne
     private Benutzer autor;
+    
+    @ManyToOne
+    private Aufgabe elternAufgabe;
 
     public Long getId() {
         return id;
@@ -50,28 +56,28 @@ public class Kommentar implements Serializable {
     /**
      * @return the erstellDatum
      */
-    public Timestamp getErstellDatum() {
+    public Date getErstellDatum() {
         return erstellDatum;
     }
 
     /**
      * @param erstellDatum the erstellDatum to set
      */
-    public void setErstellDatum(Timestamp erstellDatum) {
+    public void setErstellDatum(Date erstellDatum) {
         this.erstellDatum = erstellDatum;
     }
 
     /**
      * @return the aenderungsDatum
      */
-    public Timestamp getAenderungsDatum() {
+    public Date getAenderungsDatum() {
         return aenderungsDatum;
     }
 
     /**
      * @param aenderungsDatum the aenderungsDatum to set
      */
-    public void setAenderungsDatum(Timestamp aenderungsDatum) {
+    public void setAenderungsDatum(Date aenderungsDatum) {
         this.aenderungsDatum = aenderungsDatum;
     }
     
@@ -92,13 +98,41 @@ public class Kommentar implements Serializable {
         hash = 67 * hash + (this.id != null ? this.id.hashCode() : 0);
         hash = 67 * hash + (this.text != null ? this.text.hashCode() : 0);
         hash = 67 * hash + (this.erstellDatum != null ? this.erstellDatum.hashCode() : 0);
-        hash = 67 * hash + (this.autor != null ? this.autor.hashCode() : 0);
+        hash = 67 * hash + (this.getAutor() != null ? this.getAutor().hashCode() : 0);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Kommentar{" + ", autor=" + autor+ "text=" + text + '}';
+        return text;
+    }
+
+    /**
+     * @return the autor
+     */
+    public Benutzer getAutor() {
+        return autor;
+    }
+
+    /**
+     * @param autor the autor to set
+     */
+    public void setAutor(Benutzer autor) {
+        this.autor = autor;
+    }
+
+    /**
+     * @return the elternAufgabe
+     */
+    public Aufgabe getElternAufgabe() {
+        return elternAufgabe;
+    }
+
+    /**
+     * @param elternAufgabe the elternAufgabe to set
+     */
+    public void setElternAufgabe(Aufgabe elternAufgabe) {
+        this.elternAufgabe = elternAufgabe;
     }
      
      

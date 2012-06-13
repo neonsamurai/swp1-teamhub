@@ -1,8 +1,7 @@
 package com.teamhub.maventeamhub.model;
 
 import java.io.Serializable;
-import java.security.Timestamp;
-import java.util.Collection;
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity
@@ -23,15 +22,18 @@ public class Aufgabe implements Serializable {
     /**
      * @attribute
      */
-    private Timestamp erstellDatum;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date erstellDatum;
     /**
      * @attribute
      */
-    private Timestamp faelligkeitsDatum;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date faelligkeitsDatum;
     /**
      * @attribute
      */
-    private Timestamp aenderungsDatum;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date aenderungsDatum;
     private Prioritaet prioritaet;
     private AufgabenStatus status;
     /**
@@ -88,42 +90,42 @@ public class Aufgabe implements Serializable {
     /**
      * @return the erstellDatum
      */
-    public Timestamp getErstellDatum() {
+    public Date getErstellDatum() {
         return erstellDatum;
     }
 
     /**
      * @param erstellDatum the erstellDatum to set
      */
-    public void setErstellDatum(Timestamp erstellDatum) {
+    public void setErstellDatum(Date erstellDatum) {
         this.erstellDatum = erstellDatum;
     }
 
     /**
      * @return the faelligkeitsDatum
      */
-    public Timestamp getFaelligkeitsDatum() {
+    public Date getFaelligkeitsDatum() {
         return faelligkeitsDatum;
     }
 
     /**
      * @param faelligkeitsDatum the faelligkeitsDatum to set
      */
-    public void setFaelligkeitsDatum(Timestamp faelligkeitsDatum) {
+    public void setFaelligkeitsDatum(Date faelligkeitsDatum) {
         this.faelligkeitsDatum = faelligkeitsDatum;
     }
 
     /**
      * @return the aenderungsDatum
      */
-    public Timestamp getAenderungsDatum() {
+    public Date getAenderungsDatum() {
         return aenderungsDatum;
     }
 
     /**
      * @param aenderungsDatum the aenderungsDatum to set
      */
-    public void setAenderungsDatum(Timestamp aenderungsDatum) {
+    public void setAenderungsDatum(Date aenderungsDatum) {
         this.aenderungsDatum = aenderungsDatum;
     }
 
@@ -192,7 +194,7 @@ public class Aufgabe implements Serializable {
 
     @Override
     public String toString() {
-        return "Aufgabe{"+", titel=" + titel + "beschreibung=" + beschreibung + '}';
+        return titel;
     }
     
     

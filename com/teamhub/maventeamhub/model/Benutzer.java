@@ -156,7 +156,7 @@ public class Benutzer implements Serializable {
 
     @Override
     public String toString() {
-        return "Benutzer{" + "benutzerName=" + benutzerName + '}';
+        return benutzerName;
     }
     
     

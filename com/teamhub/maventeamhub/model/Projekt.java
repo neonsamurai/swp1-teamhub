@@ -13,13 +13,18 @@ public class Projekt implements Serializable {
     /**
      * @attribute
      */
-    private String titel;
+    private String name;
     /**
      * @associates <{uml.Aufgabe}>
      */
     @OneToMany
-    private Collection<Aufgabe> projektAugaben;
-    private String name;
+    private Collection<Aufgabe> projektAufgaben;
+    /**
+     * @attribute
+     */
+    
+    @ManyToOne
+    private Benutzer besitzer;
     /**
      * @attribute
      */
@@ -37,43 +42,43 @@ public class Projekt implements Serializable {
     /**
      * @return the titel
      */
-    public String getTitel() {
-        return titel;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param titel the titel to set
+     * @param name the titel to set
      */
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
      * @return the projektAufgaben
      */
     public Collection getProjektAufgaben() {
-        return projektAugaben;
+        return projektAufgaben;
     }
 
     /**
-     * @param projektAugaben the projektAugaben to set
+     * @param projektAufgaben the projektAufgaben to set
      */
-    public void setProjektAufgaben(Collection projektAugaben) {
-        this.projektAugaben = projektAugaben;
+    public void setProjektAufgaben(Collection projektAufgaben) {
+        this.projektAufgaben = projektAufgaben;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
-        return name;
+    public Benutzer getBesitzer() {
+        return besitzer;
     }
 
     /**
-     * @param name the name to set
+     * @param besitzer the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setBesitzer(Benutzer besitzer) {
+        this.besitzer = besitzer;
     }
 
     /**
@@ -119,7 +124,7 @@ public class Projekt implements Serializable {
     public int hashCode() {
         int hash = 5;
         hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 59 * hash + (this.titel != null ? this.titel.hashCode() : 0);
+        hash = 59 * hash + (this.besitzer != null ? this.besitzer.hashCode() : 0);
         hash = 59 * hash + (this.name != null ? this.name.hashCode() : 0);
         hash = 59 * hash + (this.beschreibung != null ? this.beschreibung.hashCode() : 0);
         return hash;
@@ -127,7 +132,7 @@ public class Projekt implements Serializable {
 
     @Override
     public String toString() {
-        return "Projekt{" + "titel=" + titel + ", beschreibung=" + beschreibung + '}';
+        return name;
     }
     
     
